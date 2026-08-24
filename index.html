@@ -1,0 +1,3399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08050f">
+
+<title>For Simmu ❤️ | Section 10</title>
+
+<style>
+/* =========================================================
+   SIMMU — SECTION 10
+   Single-file website
+   Made by Shubham
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+:root{
+    --bg:#07040d;
+    --bg2:#0e0818;
+    --card:#151021;
+    --card2:#1b1229;
+    --purple:#a66cff;
+    --purple2:#7138c8;
+    --light-purple:#c8a8ff;
+    --gold:#f1cf7a;
+    --white:#fff;
+    --text:#eee7f7;
+    --muted:#aaa0b8;
+    --border:rgba(255,255,255,.09);
+    --danger:#ff7185;
+    --green:#63df9a;
+}
+
+body{
+    font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            #35165b 0%,
+            #12091e 32%,
+            #07040d 72%
+        );
+
+    color:var(--text);
+    line-height:1.7;
+    overflow-x:hidden;
+}
+
+/* Background grid */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-5;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+
+    background-size:55px 55px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 80%
+        );
+}
+
+/* Stars */
+
+#stars{
+    position:fixed;
+    inset:0;
+    z-index:-3;
+    pointer-events:none;
+}
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    border-radius:50%;
+    background:#c59aff;
+    opacity:.2;
+
+    animation:
+        floatingStar
+        linear
+        infinite;
+}
+
+@keyframes floatingStar{
+
+    0%{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.35;
+    }
+
+    80%{
+        opacity:.2;
+    }
+
+    100%{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+
+    height:72px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 6%;
+
+    background:rgba(7,4,13,.72);
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid var(--border);
+
+    z-index:100;
+}
+
+.logo{
+    font-weight:800;
+    letter-spacing:.4px;
+}
+
+.logo span{
+    color:var(--gold);
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+}
+
+.nav-links a{
+    color:var(--muted);
+    text-decoration:none;
+    font-size:14px;
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.menu-btn{
+    display:none;
+
+    background:none;
+    border:none;
+
+    color:white;
+
+    font-size:25px;
+
+    cursor:pointer;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:100vh;
+
+    display:grid;
+    place-items:center;
+
+    text-align:center;
+
+    position:relative;
+
+    padding:
+        120px
+        20px
+        60px;
+}
+
+.hero-glow{
+    position:absolute;
+
+    width:650px;
+    height:650px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(166,108,255,.24),
+            transparent 68%
+        );
+
+    filter:blur(5px);
+
+    animation:
+        heroPulse
+        6s
+        ease-in-out
+        infinite;
+}
+
+@keyframes heroPulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.13);
+    }
+}
+
+.hero-content{
+    position:relative;
+
+    max-width:850px;
+}
+
+.eyebrow{
+    color:var(--gold);
+
+    font-size:11px;
+
+    letter-spacing:3px;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+}
+
+.hero h1{
+    font-size:
+        clamp(
+            55px,
+            10vw,
+            110px
+        );
+
+    line-height:1;
+
+    margin:
+        22px
+        0;
+}
+
+.hero h1 span{
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #c296ff,
+            #f1cf7a
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+.hero-name{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.hero-description{
+    max-width:650px;
+
+    margin:auto;
+
+    color:var(--muted);
+
+    font-size:18px;
+}
+
+.signature{
+    margin-top:25px;
+
+    color:#d8c9e5;
+
+    font-style:italic;
+}
+
+.hero-buttons{
+    margin-top:28px;
+
+    display:flex;
+    justify-content:center;
+    gap:12px;
+
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:none;
+
+    padding:
+        14px
+        25px;
+
+    border-radius:999px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    color:white;
+}
+
+.btn-primary{
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--purple2)
+        );
+
+    box-shadow:
+        0 15px 45px
+        rgba(120,55,200,.35);
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 20px 55px
+        rgba(120,55,200,.5);
+}
+
+.btn-secondary{
+    background:rgba(255,255,255,.05);
+
+    border:1px solid var(--border);
+}
+
+.btn-secondary:hover{
+    background:rgba(255,255,255,.1);
+}
+
+.scroll-hint{
+    position:absolute;
+
+    bottom:25px;
+
+    color:#756b80;
+
+    font-size:12px;
+
+    letter-spacing:2px;
+
+    animation:
+        scrollBounce
+        2s
+        infinite;
+}
+
+@keyframes scrollBounce{
+
+    50%{
+        transform:translateY(8px);
+    }
+}
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
+
+section{
+    max-width:1150px;
+
+    margin:auto;
+
+    padding:
+        110px
+        22px;
+}
+
+.section-number{
+    color:var(--gold);
+
+    font-weight:900;
+
+    font-size:12px;
+
+    letter-spacing:2px;
+}
+
+section h2{
+    font-size:
+        clamp(
+            35px,
+            5vw,
+            60px
+        );
+
+    line-height:1.1;
+
+    margin:
+        8px
+        0
+        15px;
+}
+
+.section-subtitle{
+    color:var(--muted);
+
+    max-width:720px;
+}
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.card{
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(28,16,43,.92),
+            rgba(12,7,20,.94)
+        );
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:26px;
+
+    box-shadow:
+        0 25px 80px
+        rgba(0,0,0,.4);
+}
+
+/* =========================================================
+   DEFINITION
+========================================================= */
+
+.definition{
+    margin-top:35px;
+
+    padding:32px;
+
+    display:flex;
+
+    gap:25px;
+
+    align-items:flex-start;
+}
+
+.definition-icon{
+    font-size:45px;
+}
+
+.tag{
+    color:var(--gold);
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    font-weight:900;
+}
+
+.definition h3{
+    font-size:31px;
+
+    margin:
+        6px
+        0;
+}
+
+.definition p{
+    color:var(--muted);
+}
+
+/* =========================================================
+   LEVELS
+========================================================= */
+
+.levels{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:15px;
+
+    margin-top:20px;
+}
+
+.level{
+
+    text-align:left;
+
+    padding:25px;
+
+    border-radius:22px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid
+        var(--border);
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.level:hover,
+.level.active{
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(166,108,255,.65);
+
+    background:
+        rgba(113,56,200,.16);
+}
+
+.level-icon{
+    font-size:30px;
+}
+
+.level h3{
+    margin:
+        10px
+        0
+        4px;
+}
+
+.level p{
+    color:var(--muted);
+
+    font-size:14px;
+}
+
+.level-content{
+
+    margin-top:18px;
+
+    padding:28px;
+
+    min-height:130px;
+}
+
+.level-content p{
+    color:#d4c9df;
+}
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    overflow-x:auto;
+
+    padding:
+        30px
+        0
+        15px;
+}
+
+.timeline-step{
+
+    min-width:185px;
+
+    padding:22px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,.035);
+}
+
+.timeline-number{
+
+    display:grid;
+
+    place-items:center;
+
+    width:35px;
+    height:35px;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--purple2)
+        );
+
+    font-weight:900;
+
+    margin-bottom:14px;
+}
+
+.timeline-step h3{
+    font-size:18px;
+}
+
+.timeline-step p{
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+.timeline-arrow{
+    color:var(--purple);
+
+    font-size:24px;
+}
+
+/* =========================================================
+   MEMORY
+========================================================= */
+
+.memory{
+
+    margin-top:25px;
+
+    padding:20px 25px;
+
+    border-radius:18px;
+
+    background:
+        rgba(240,207,122,.06);
+
+    border:
+        1px solid
+        rgba(240,207,122,.2);
+}
+
+.memory strong{
+    color:var(--gold);
+}
+
+/* =========================================================
+   GROUNDS
+========================================================= */
+
+.ground-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:15px;
+
+    margin-top:30px;
+}
+
+.ground{
+
+    padding:24px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:22px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.ground:hover{
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(166,108,255,.6);
+}
+
+.ground-top{
+
+    display:flex;
+
+    justify-content:space-between;
+}
+
+.ground h3{
+    margin-top:6px;
+}
+
+.ground .plus{
+
+    color:var(--gold);
+
+    font-size:24px;
+}
+
+.ground-details{
+
+    display:none;
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    margin-top:15px;
+}
+
+.ground.open
+.ground-details{
+
+    display:block;
+}
+
+.example-label{
+    color:#d9c4ef;
+
+    font-weight:800;
+}
+
+/* =========================================================
+   EXAMPLES
+========================================================= */
+
+.example-card{
+
+    margin-top:30px;
+
+    padding:32px;
+}
+
+.example-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:#81758d;
+
+    font-size:12px;
+}
+
+.example-card h3{
+
+    font-size:32px;
+
+    margin:
+        15px
+        0
+        10px;
+}
+
+.example-card p{
+    color:var(--muted);
+}
+
+.example-question{
+
+    margin:
+        20px
+        0;
+
+    padding:18px;
+
+    border-left:
+        3px solid
+        var(--purple);
+
+    background:
+        rgba(255,255,255,.035);
+
+    color:white !important;
+}
+
+.example-answer{
+
+    display:none;
+
+    margin-top:15px;
+
+    padding:18px;
+
+    border-radius:15px;
+
+    background:
+        rgba(166,108,255,.08);
+
+    color:#ddd0e8 !important;
+}
+
+.example-answer.show{
+    display:block;
+}
+
+.example-navigation{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:25px;
+}
+
+.small-btn{
+
+    padding:
+        10px
+        18px;
+
+    border-radius:999px;
+
+    background:
+        rgba(255,255,255,.05);
+
+    border:
+        1px solid
+        var(--border);
+
+    color:white;
+
+    cursor:pointer;
+}
+
+/* =========================================================
+   COMPARISON
+========================================================= */
+
+.comparison{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:15px;
+
+    margin-top:30px;
+}
+
+.compare-card{
+
+    padding:25px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:22px;
+
+    background:
+        rgba(255,255,255,.035);
+}
+
+.compare-card.highlight{
+
+    border-color:
+        rgba(166,108,255,.65);
+
+    background:
+        rgba(113,56,200,.13);
+}
+
+.compare-number{
+
+    font-size:32px;
+
+    color:var(--gold);
+
+    font-weight:900;
+}
+
+.compare-card h3{
+
+    margin:
+        7px
+        0;
+}
+
+.compare-card p{
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    min-height:52px;
+}
+
+/* =========================================================
+   EXAM BOX
+========================================================= */
+
+.exam-box{
+
+    margin-top:25px;
+
+    padding:28px;
+}
+
+.exam-box p{
+
+    color:var(--muted);
+
+    margin-top:10px;
+}
+
+/* =========================================================
+   ACCORDION
+========================================================= */
+
+.accordion{
+
+    display:grid;
+
+    gap:10px;
+
+    margin-top:25px;
+}
+
+details{
+
+    padding:
+        17px
+        20px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:17px;
+}
+
+summary{
+
+    cursor:pointer;
+
+    font-weight:800;
+}
+
+details p{
+
+    color:var(--muted);
+
+    padding-top:12px;
+}
+
+/* =========================================================
+   QUIZ
+========================================================= */
+
+.quiz-card{
+
+    max-width:800px;
+
+    margin:
+        30px
+        auto
+        0;
+
+    padding:32px;
+}
+
+.quiz-progress{
+
+    height:5px;
+
+    background:#281931;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin-bottom:28px;
+}
+
+.quiz-progress-bar{
+
+    height:100%;
+
+    width:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--purple),
+            var(--gold)
+        );
+
+    transition:.3s;
+}
+
+.quiz-number{
+
+    color:var(--gold);
+
+    font-size:12px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+}
+
+.quiz-question{
+
+    font-size:25px;
+
+    margin:
+        8px
+        0
+        20px;
+}
+
+.quiz-option{
+
+    display:block;
+
+    width:100%;
+
+    padding:15px;
+
+    margin:
+        9px
+        0;
+
+    text-align:left;
+
+    border-radius:14px;
+
+    border:
+        1px solid
+        var(--border);
+
+    background:
+        rgba(255,255,255,.035);
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.quiz-option:hover{
+
+    border-color:
+        rgba(166,108,255,.6);
+}
+
+.quiz-option.correct{
+
+    border-color:
+        var(--green);
+
+    background:
+        rgba(99,223,154,.1);
+}
+
+.quiz-option.wrong{
+
+    border-color:
+        var(--danger);
+
+    background:
+        rgba(255,113,133,.1);
+}
+
+.quiz-result{
+
+    display:none;
+
+    text-align:center;
+}
+
+.quiz-result-score{
+
+    font-size:60px;
+
+    font-weight:900;
+
+    background:
+        linear-gradient(
+            90deg,
+            white,
+            var(--purple),
+            var(--gold)
+        );
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+}
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.final-section{
+
+    text-align:center;
+}
+
+.final-card{
+
+    padding:
+        70px
+        25px;
+}
+
+.heart{
+
+    font-size:55px;
+
+    color:#ff8fc8;
+
+    animation:
+        heartbeat
+        1.5s
+        infinite;
+}
+
+@keyframes heartbeat{
+
+    50%{
+        transform:scale(1.18);
+    }
+}
+
+.final-card h2{
+
+    font-size:
+        clamp(
+            40px,
+            7vw,
+            65px
+        );
+
+    margin:
+        10px
+        0;
+}
+
+.final-card p{
+
+    color:var(--muted);
+
+    max-width:650px;
+
+    margin:
+        10px
+        auto;
+}
+
+footer{
+
+    text-align:center;
+
+    padding:
+        35px
+        20px;
+
+    border-top:
+        1px solid
+        var(--border);
+
+    color:#70657b;
+
+    font-size:12px;
+}
+
+.disclaimer{
+
+    max-width:800px;
+
+    margin:
+        8px
+        auto;
+}
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:
+        translateY(30px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.visible{
+
+    opacity:1;
+
+    transform:none;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:850px){
+
+    .nav-links{
+
+        display:none;
+
+        position:absolute;
+
+        top:72px;
+
+        left:0;
+        right:0;
+
+        padding:20px;
+
+        background:
+            rgba(7,4,13,.98);
+
+        flex-direction:column;
+
+        gap:15px;
+    }
+
+    .nav-links.open{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .levels,
+    .ground-grid,
+    .comparison{
+
+        grid-template-columns:1fr;
+    }
+
+    .definition{
+
+        flex-direction:column;
+    }
+
+    .hero h1{
+        font-size:60px;
+    }
+
+    .timeline{
+        align-items:stretch;
+    }
+
+    .timeline-arrow{
+        display:none;
+    }
+
+}
+
+@media(max-width:500px){
+
+    section{
+        padding:
+            80px
+            18px;
+    }
+
+    .hero h1{
+        font-size:50px;
+    }
+
+    .hero-description{
+        font-size:16px;
+    }
+
+    .definition,
+    .example-card,
+    .quiz-card{
+
+        padding:23px;
+    }
+
+    .example-card h3{
+        font-size:25px;
+    }
+
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- =====================================================
+     BACKGROUND STARS
+===================================================== -->
+
+<div id="stars"></div>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav>
+
+    <div class="logo">
+        ⚖ <span>Simmu's Law Space</span>
+    </div>
+
+    <button
+        class="menu-btn"
+        id="menuBtn">
+        ☰
+    </button>
+
+    <div
+        class="nav-links"
+        id="navLinks">
+
+        <a href="#home">Home</a>
+
+        <a href="#learn">Learn</a>
+
+        <a href="#grounds">Grounds</a>
+
+        <a href="#examples">Examples</a>
+
+        <a href="#compare">Compare</a>
+
+        <a href="#quiz">Quiz</a>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section
+    class="hero"
+    id="home">
+
+    <div class="hero-glow"></div>
+
+    <div
+        class="hero-content reveal">
+
+        <div class="eyebrow">
+            A WEBSITE MADE ESPECIALLY FOR YOU
+        </div>
+
+        <h1>
+            Hey,
+            <span>Simmu</span>
+            ❤️
+        </h1>
+
+        <div class="hero-name">
+            I'm <strong>Shubham.</strong>
+        </div>
+
+        <p class="hero-description">
+
+            And yes...
+            <strong>
+                I made this entire website for you.
+            </strong>
+
+            <br><br>
+
+            I wanted Section 10 to feel less like
+            a difficult law book and more like
+            something you can actually understand.
+
+        </p>
+
+        <div class="signature">
+            — From Shubham → to Simmu
+        </div>
+
+        <div class="hero-buttons">
+
+            <button
+                class="btn btn-primary"
+                onclick="scrollToSection('learn')">
+
+                ✨ Start Learning
+
+            </button>
+
+            <button
+                class="btn btn-secondary"
+                onclick="scrollToSection('quiz')">
+
+                🧠 Take Quiz
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="scroll-hint">
+        ↓ scroll slowly
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SECTION 1
+===================================================== -->
+
+<section
+    id="learn">
+
+    <div class="reveal">
+
+        <div class="section-number">
+            01
+        </div>
+
+        <h2>
+            Let's make law simple.
+        </h2>
+
+        <p class="section-subtitle">
+
+            Section 10 of the Hindu Marriage Act,
+            1955 — Judicial Separation.
+
+        </p>
+
+    </div>
+
+
+    <div
+        class="definition card reveal">
+
+        <div class="definition-icon">
+            ⚖️
+        </div>
+
+        <div>
+
+            <div class="tag">
+                ONE-LINE MEANING
+            </div>
+
+            <h3>
+                Separate, but still married.
+            </h3>
+
+            <p>
+
+                Judicial separation means that
+                a court allows a husband and wife
+                to live separately, while their
+                marriage itself continues.
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="levels reveal">
+
+        <button
+            class="level active"
+            data-level="simple">
+
+            <div class="level-icon">
+                🌱
+            </div>
+
+            <h3>
+                Start Simple
+            </h3>
+
+            <p>
+                Understand it like you've never
+                studied law before.
+            </p>
+
+        </button>
+
+
+        <button
+            class="level"
+            data-level="student">
+
+            <div class="level-icon">
+                📚
+            </div>
+
+            <h3>
+                B.A. LL.B. Mode
+            </h3>
+
+            <p>
+                Legal terminology and
+                exam-ready explanation.
+            </p>
+
+        </button>
+
+
+        <button
+            class="level"
+            data-level="advanced">
+
+            <div class="level-icon">
+                🔴
+            </div>
+
+            <h3>
+                Advanced Mode
+            </h3>
+
+            <p>
+                Deeper legal concepts and
+                distinctions.
+            </p>
+
+        </button>
+
+    </div>
+
+
+    <div
+        id="levelContent"
+        class="level-content card reveal">
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SECTION 2
+===================================================== -->
+
+<section>
+
+    <div class="reveal">
+
+        <div class="section-number">
+            02
+        </div>
+
+        <h2>
+            What actually happens?
+        </h2>
+
+        <p class="section-subtitle">
+
+            Think of Section 10 as a legal pause —
+            not the end of the marriage.
+
+        </p>
+
+    </div>
+
+
+    <div class="timeline reveal">
+
+        <div class="timeline-step">
+
+            <div class="timeline-number">
+                1
+            </div>
+
+            <h3>
+                Marriage
+            </h3>
+
+            <p>
+                Two people are legally married.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-arrow">
+            →
+        </div>
+
+
+        <div class="timeline-step">
+
+            <div class="timeline-number">
+                2
+            </div>
+
+            <h3>
+                Legal ground
+            </h3>
+
+            <p>
+                A statutory ground may arise.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-arrow">
+            →
+        </div>
+
+
+        <div class="timeline-step">
+
+            <div class="timeline-number">
+                3
+            </div>
+
+            <h3>
+                Petition
+            </h3>
+
+            <p>
+                A spouse approaches the competent court.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-arrow">
+            →
+        </div>
+
+
+        <div class="timeline-step">
+
+            <div class="timeline-number">
+                4
+            </div>
+
+            <h3>
+                Decree
+            </h3>
+
+            <p>
+                The court decides according to law.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-arrow">
+            →
+        </div>
+
+
+        <div class="timeline-step">
+
+            <div class="timeline-number">
+                5
+            </div>
+
+            <h3>
+                Separate living
+            </h3>
+
+            <p>
+                They may live separately while
+                remaining married.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="memory reveal">
+
+        🧠
+
+        <strong>
+            Simmu, remember:
+        </strong>
+
+        Judicial Separation ≠ Divorce.
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SECTION 3 — GROUNDS
+===================================================== -->
+
+<section
+    id="grounds">
+
+    <div class="reveal">
+
+        <div class="section-number">
+            03
+        </div>
+
+        <h2>
+            Grounds — one by one
+        </h2>
+
+        <p class="section-subtitle">
+
+            Click a card to open the explanation
+            and example.
+
+        </p>
+
+    </div>
+
+
+    <div
+        class="ground-grid"
+        id="groundGrid">
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SECTION 4 — EXAMPLES
+===================================================== -->
+
+<section
+    id="examples">
+
+    <div class="reveal">
+
+        <div class="section-number">
+            04
+        </div>
+
+        <h2>
+            Learn through examples.
+        </h2>
+
+        <p class="section-subtitle">
+
+            Law becomes easier when you see
+            how a rule works in a situation.
+
+        </p>
+
+    </div>
+
+
+    <div
+        class="example-card card reveal">
+
+        <div class="example-top">
+
+            <span class="tag">
+                SCENARIO
+            </span>
+
+            <span id="exampleCounter">
+                1 / 4
+            </span>
+
+        </div>
+
+
+        <h3 id="exampleTitle">
+        </h3>
+
+
+        <p id="exampleText">
+        </p>
+
+
+        <div
+            class="example-question"
+            id="exampleQuestion">
+        </div>
+
+
+        <button
+            class="btn btn-primary"
+            id="showAnswer">
+
+            Show explanation
+
+        </button>
+
+
+        <div
+            class="example-answer"
+            id="exampleAnswer">
+        </div>
+
+
+        <div class="example-navigation">
+
+            <button
+                class="small-btn"
+                id="previousExample">
+
+                ← Previous
+
+            </button>
+
+
+            <button
+                class="small-btn"
+                id="nextExample">
+
+                Next →
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SECTION 5 — COMPARISON
+===================================================== -->
+
+<section
+    id="compare">
+
+    <div class="reveal">
+
+        <div class="section-number">
+            05
+        </div>
+
+        <h2>
+            Don't confuse these.
+        </h2>
+
+        <p class="section-subtitle">
+
+            A quick visual revision.
+
+        </p>
+
+    </div>
+
+
+    <div class="comparison reveal">
+
+        <div
+            class="compare-card highlight">
+
+            <div class="compare-number">
+                10
+            </div>
+
+            <h3>
+                Judicial Separation
+            </h3>
+
+            <p>
+                Marriage continues.
+            </p>
+
+            <strong>
+                Separate, but married.
+            </strong>
+
+        </div>
+
+
+        <div class="compare-card">
+
+            <div class="compare-number">
+                13
+            </div>
+
+            <h3>
+                Divorce
+            </h3>
+
+            <p>
+                Marriage is dissolved.
+            </p>
+
+            <strong>
+                Marriage ends.
+            </strong>
+
+        </div>
+
+
+        <div class="compare-card">
+
+            <div class="compare-number">
+                9
+            </div>
+
+            <h3>
+                Restitution
+            </h3>
+
+            <p>
+                Seeks restoration of
+                matrimonial cohabitation.
+            </p>
+
+            <strong>
+                Come together.
+            </strong>
+
+        </div>
+
+
+        <div class="compare-card">
+
+            <div class="compare-number">
+                11/12
+            </div>
+
+            <h3>
+                Void / Voidable
+            </h3>
+
+            <p>
+                Different statutory remedies
+                concerning validity.
+            </p>
+
+            <strong>
+                Not Section 10.
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="exam-box card reveal">
+
+        <h3>
+            🎓 Exam-ready answer
+        </h3>
+
+        <p>
+
+            Section 10 of the Hindu Marriage Act,
+            1955 provides for judicial separation.
+            Either spouse may seek a decree on the
+            statutory grounds referred to in the
+            provision. Judicial separation permits
+            the spouses to live separately without
+            dissolving their marriage. Thus, the
+            marital status continues, although the
+            obligation of cohabitation is suspended.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SECTION 6 — ADVANCED
+===================================================== -->
+
+<section>
+
+    <div class="reveal">
+
+        <div class="section-number">
+            06
+        </div>
+
+        <h2>
+            Hard level: legal concepts.
+        </h2>
+
+        <p class="section-subtitle">
+
+            For when you want to go beyond
+            the basic definition.
+
+        </p>
+
+    </div>
+
+
+    <div class="accordion reveal">
+
+        <details>
+
+            <summary>
+                What is a decree?
+            </summary>
+
+            <p>
+
+                A decree is a formal judicial
+                determination/order of a court.
+                A decree of judicial separation
+                is the court's formal grant of
+                that matrimonial relief.
+
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                What is a petition?
+            </summary>
+
+            <p>
+
+                A petition is a formal application
+                presented to a court seeking a
+                legal remedy.
+
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                What is cohabitation?
+            </summary>
+
+            <p>
+
+                In matrimonial law, cohabitation
+                generally refers to spouses living
+                together as husband and wife.
+
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                Can judicial separation be rescinded?
+            </summary>
+
+            <p>
+
+                Section 10 provides for rescission
+                of the decree where the statutory
+                conditions are satisfied and the
+                court considers it just and
+                reasonable.
+
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                Does judicial separation automatically become divorce?
+            </summary>
+
+            <p>
+
+                No.
+
+                Judicial separation does not itself
+                dissolve the marriage. A later divorce
+                requires a separate statutory basis
+                and legal proceeding.
+
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                Can the spouses reconcile?
+            </summary>
+
+            <p>
+
+                Yes.
+
+                Reconciliation is possible. The
+                legal consequences of reconciliation
+                and the decree should be dealt with
+                through the applicable legal process.
+
+            </p>
+
+        </details>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SECTION 7 — QUIZ
+===================================================== -->
+
+<section
+    id="quiz">
+
+    <div class="reveal">
+
+        <div class="section-number">
+            07
+        </div>
+
+        <h2>
+            Okay Simmu... test time 🧠
+        </h2>
+
+        <p class="section-subtitle">
+
+            Let's see how much you remember.
+
+        </p>
+
+    </div>
+
+
+    <div
+        class="quiz-card card reveal">
+
+        <div class="quiz-progress">
+
+            <div
+                class="quiz-progress-bar"
+                id="quizProgress">
+            </div>
+
+        </div>
+
+
+        <div id="quizContent">
+        </div>
+
+
+        <div
+            class="quiz-result"
+            id="quizResult">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL
+===================================================== -->
+
+<section
+    class="final-section">
+
+    <div
+        class="final-card card reveal">
+
+        <div class="heart">
+            ♥
+        </div>
+
+        <h2>
+            You made it, Simmu.
+        </h2>
+
+        <p>
+
+            That's Section 10 —
+            from the simplest meaning
+            to the harder legal concepts.
+
+        </p>
+
+        <p>
+
+            Made with a lot of effort by
+            <strong>
+                Shubham.
+            </strong>
+
+        </p>
+
+
+        <button
+            class="btn btn-primary"
+            onclick="scrollToSection('home')">
+
+            ↑ Back to top
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+        Made by Shubham for Simmu ❤️
+    </p>
+
+    <p class="disclaimer">
+
+        Educational website only.
+        This is not professional legal advice.
+        Verify the current statute, amendments
+        and case law before relying on this
+        material for legal work.
+
+    </p>
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   BASIC NAVIGATION
+========================================================= */
+
+function scrollToSection(id){
+
+    const element =
+        document.getElementById(id);
+
+    if(element){
+
+        element.scrollIntoView({
+            behavior:"smooth"
+        });
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuBtn =
+    document.getElementById("menuBtn");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+menuBtn.addEventListener(
+    "click",
+    () => {
+
+        navLinks.classList.toggle("open");
+
+    }
+);
+
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(link => {
+
+        link.addEventListener(
+            "click",
+            () => {
+
+                navLinks.classList.remove(
+                    "open"
+                );
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   LEARNING LEVELS
+========================================================= */
+
+const levelContent =
+    document.getElementById(
+        "levelContent"
+    );
+
+
+const levelData = {
+
+    simple: {
+
+        title:
+            "🌱 Simple explanation",
+
+        text:
+
+        `<p>
+
+        <strong>
+        Section 10 = Judicial Separation.
+        </strong>
+
+        It means that a court can allow a
+        husband and wife to live separately
+        while their marriage continues.
+
+        Think of it as a legal
+        <strong>pause</strong>
+        on living together —
+
+        not the end of the marriage.
+
+        </p>`
+
+    },
+
+
+    student: {
+
+        title:
+            "📚 B.A. LL.B. explanation",
+
+        text:
+
+        `<p>
+
+        Section 10 of the Hindu Marriage Act,
+        1955 provides the remedy of judicial
+        separation.
+
+        Either spouse may present a petition
+        on the statutory grounds referred to
+        in the provision.
+
+        A decree permits the spouses to live
+        apart without dissolving the marriage.
+
+        Therefore, the marital status continues,
+        although the obligation of matrimonial
+        cohabitation is suspended.
+
+        </p>`
+
+    },
+
+
+    advanced: {
+
+        title:
+            "🔴 Advanced legal analysis",
+
+        text:
+
+        `<p>
+
+        The key doctrinal distinction is between
+        <strong>marital status</strong>
+        and
+        <strong>cohabitation</strong>.
+
+        Judicial separation affects the obligation
+        of spouses to cohabit but does not dissolve
+        the marriage.
+
+        Section 10 connects its grounds with
+        Section 13(1).
+
+        Therefore, judicial separation is a
+        matrimonial remedy short of dissolution.
+
+        It should not be described as automatic
+        divorce.
+
+        </p>`
+
+    }
+
+};
+
+
+function showLevel(level){
+
+    document
+        .querySelectorAll(".level")
+        .forEach(button => {
+
+            button.classList.toggle(
+                "active",
+                button.dataset.level === level
+            );
+
+        });
+
+
+    levelContent.innerHTML = `
+
+        <h3>
+            ${levelData[level].title}
+        </h3>
+
+        ${levelData[level].text}
+
+    `;
+
+}
+
+
+document
+    .querySelectorAll(".level")
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                showLevel(
+                    button.dataset.level
+                );
+
+            }
+        );
+
+    });
+
+
+showLevel("simple");
+
+
+/* =========================================================
+   GROUNDS
+========================================================= */
+
+const grounds = [
+
+    {
+
+        title:
+            "Adultery",
+
+        simple:
+            "A spouse voluntarily has sexual relations with another person during the marriage, subject to the statutory requirements.",
+
+        example:
+            "Rahul and Priya are married. Rahul voluntarily has a sexual relationship with another person. The conduct may constitute a statutory matrimonial ground."
+
+    },
+
+
+    {
+
+        title:
+            "Cruelty",
+
+        simple:
+            "Cruelty may be physical or mental. Courts examine the facts and circumstances of each case.",
+
+        example:
+            "Repeated serious physical violence or extreme mental harassment may amount to cruelty depending on the circumstances."
+
+    },
+
+
+    {
+
+        title:
+            "Desertion",
+
+        simple:
+            "Desertion involves abandonment of the other spouse without reasonable cause, without consent, with the required intention and statutory period.",
+
+        example:
+            "A spouse leaves the matrimonial relationship without reasonable cause and remains away for the required statutory period."
+
+    },
+
+
+    {
+
+        title:
+            "Conversion",
+
+        simple:
+            "A spouse ceases to be a Hindu by converting to another religion, as contemplated by the Act.",
+
+        example:
+            "One spouse converts from Hinduism to another religion. The other spouse may have the statutory matrimonial remedy."
+
+    },
+
+
+    {
+
+        title:
+            "Mental disorder",
+
+        simple:
+            "The statutory ground concerns the legally specified nature or extent of mental disorder. It is not simply any mental-health condition.",
+
+        example:
+            "The court examines the condition and whether the petitioner can reasonably be expected to live with the respondent."
+
+    },
+
+
+    {
+
+        title:
+            "Renunciation of the world",
+
+        simple:
+            "A spouse has renounced worldly life by entering a religious order, as recognized by the statute.",
+
+        example:
+            "A spouse formally renounces worldly life and enters a recognized religious order."
+
+    },
+
+
+    {
+
+        title:
+            "Presumption of death",
+
+        simple:
+            "Where a person has not been heard of as alive for seven years or more by persons who would naturally have heard from them, the statutory ground may apply.",
+
+        example:
+            "A spouse disappears and is not heard from for the required period by persons who would naturally have heard from them."
+
+    }
+
+];
+
+
+const groundGrid =
+    document.getElementById(
+        "groundGrid"
+    );
+
+
+grounds.forEach(
+    (ground,index) => {
+
+        const card =
+            document.createElement(
+                "article"
+            );
+
+        card.className =
+            "ground reveal";
+
+        card.innerHTML = `
+
+            <div class="ground-top">
+
+                <div>
+
+                    <div class="tag">
+                        GROUND ${index+1}
+                    </div>
+
+                    <h3>
+                        ${ground.title}
+                    </h3>
+
+                </div>
+
+                <div class="plus">
+                    +
+                </div>
+
+            </div>
+
+
+            <div class="ground-details">
+
+                <p>
+
+                    <strong>
+                    Simple:
+                    </strong>
+
+                    ${ground.simple}
+
+                </p>
+
+                <br>
+
+                <p>
+
+                    <span class="example-label">
+                    Example:
+                    </span>
+
+                    ${ground.example}
+
+                </p>
+
+            </div>
+
+        `;
+
+
+        card.addEventListener(
+            "click",
+            () => {
+
+                card.classList.toggle(
+                    "open"
+                );
+
+            }
+        );
+
+
+        groundGrid.appendChild(card);
+
+    }
+);
+
+
+/* =========================================================
+   EXAMPLES
+========================================================= */
+
+const examples = [
+
+    {
+
+        title:
+            "Cruelty",
+
+        text:
+            "Rahul and Priya are married. Rahul repeatedly subjects Priya to serious physical and mental cruelty.",
+
+        question:
+            "What legal idea should be examined?",
+
+        answer:
+            "Cruelty may be a statutory ground for judicial separation. The court would examine the evidence and the applicable legal test. This example is illustrative and does not itself establish a legal finding."
+
+    },
+
+
+    {
+
+        title:
+            "Desertion",
+
+        text:
+            "A spouse leaves the matrimonial relationship without reasonable cause and remains away for the statutory period.",
+
+        question:
+            "What ground may be relevant?",
+
+        answer:
+            "Desertion may be relevant if all statutory elements, including the required period, are established."
+
+    },
+
+
+    {
+
+        title:
+            "The big distinction",
+
+        text:
+            "A court grants judicial separation to a husband and wife.",
+
+        question:
+            "Are they divorced?",
+
+        answer:
+            "No. Judicial separation does not dissolve the marriage. The parties remain legally married while they are permitted to live separately."
+
+    },
+
+
+    {
+
+        title:
+            "Reconciliation",
+
+        text:
+            "After judicial separation, the spouses decide that they want to rebuild their relationship.",
+
+        question:
+            "Can they reconcile?",
+
+        answer:
+            "Yes. Reconciliation is possible. Section 10 also provides for rescission of the decree where the statutory conditions are satisfied and the court considers it just and reasonable."
+
+    }
+
+];
+
+
+let currentExample = 0;
+
+
+const exampleCounter =
+    document.getElementById(
+        "exampleCounter"
+    );
+
+const exampleTitle =
+    document.getElementById(
+        "exampleTitle"
+    );
+
+const exampleText =
+    document.getElementById(
+        "exampleText"
+    );
+
+const exampleQuestion =
+    document.getElementById(
+        "exampleQuestion"
+    );
+
+const exampleAnswer =
+    document.getElementById(
+        "exampleAnswer"
+    );
+
+
+function loadExample(){
+
+    const example =
+        examples[currentExample];
+
+
+    exampleCounter.textContent =
+        `${currentExample+1} / ${examples.length}`;
+
+
+    exampleTitle.textContent =
+        example.title;
+
+
+    exampleText.textContent =
+        example.text;
+
+
+    exampleQuestion.textContent =
+        example.question;
+
+
+    exampleAnswer.textContent =
+        example.answer;
+
+
+    exampleAnswer.classList.remove(
+        "show"
+    );
+
+}
+
+
+document
+    .getElementById("showAnswer")
+    .addEventListener(
+        "click",
+        () => {
+
+            exampleAnswer.classList.toggle(
+                "show"
+            );
+
+        }
+    );
+
+
+document
+    .getElementById("previousExample")
+    .addEventListener(
+        "click",
+        () => {
+
+            currentExample--;
+
+            if(currentExample < 0){
+
+                currentExample =
+                    examples.length - 1;
+
+            }
+
+            loadExample();
+
+        }
+    );
+
+
+document
+    .getElementById("nextExample")
+    .addEventListener(
+        "click",
+        () => {
+
+            currentExample++;
+
+            if(
+                currentExample >=
+                examples.length
+            ){
+
+                currentExample = 0;
+
+            }
+
+            loadExample();
+
+        }
+    );
+
+
+loadExample();
+
+
+/* =========================================================
+   QUIZ
+========================================================= */
+
+const quizQuestions = [
+
+    {
+
+        question:
+            "What does Section 10 deal with?",
+
+        options:[
+            "Divorce",
+            "Judicial Separation",
+            "Adoption",
+            "Partition"
+        ],
+
+        answer:1
+
+    },
+
+
+    {
+
+        question:
+            "Does judicial separation dissolve the marriage?",
+
+        options:[
+            "Yes",
+            "No",
+            "Only after six months",
+            "Only if both agree"
+        ],
+
+        answer:1
+
+    },
+
+
+    {
+
+        question:
+            "Who can seek judicial separation?",
+
+        options:[
+            "Only the husband",
+            "Only the wife",
+            "Either spouse, subject to the Act",
+            "Only the parents"
+        ],
+
+        answer:2
+
+    },
+
+
+    {
+
+        question:
+            "Which section primarily deals with divorce?",
+
+        options:[
+            "Section 9",
+            "Section 10",
+            "Section 11",
+            "Section 13"
+        ],
+
+        answer:3
+
+    },
+
+
+    {
+
+        question:
+            "What is the easiest memory line for Section 10?",
+
+        options:[
+            "Marriage automatically ends",
+            "Separate, but still married",
+            "Come together",
+            "Forget the marriage"
+        ],
+
+        answer:1
+
+    },
+
+
+    {
+
+        question:
+            "Does judicial separation automatically become divorce?",
+
+        options:[
+            "Yes",
+            "No",
+            "After one year automatically",
+            "Only outside India"
+        ],
+
+        answer:1
+
+    }
+
+];
+
+
+let quizIndex = 0;
+
+let quizScore = 0;
+
+let quizLocked = false;
+
+
+const quizContent =
+    document.getElementById(
+        "quizContent"
+    );
+
+const quizProgress =
+    document.getElementById(
+        "quizProgress"
+    );
+
+const quizResult =
+    document.getElementById(
+        "quizResult"
+    );
+
+
+function loadQuiz(){
+
+    quizLocked = false;
+
+    const question =
+        quizQuestions[quizIndex];
+
+
+    quizProgress.style.width =
+        (
+            quizIndex /
+            quizQuestions.length
+            *
+            100
+        )
+        + "%";
+
+
+    quizContent.innerHTML = `
+
+        <div class="quiz-number">
+
+            QUESTION
+            ${quizIndex+1}
+            OF
+            ${quizQuestions.length}
+
+        </div>
+
+
+        <div class="quiz-question">
+
+            ${question.question}
+
+        </div>
+
+
+        <div>
+
+            ${question.options
+                .map(
+                    (option,index) => `
+
+                    <button
+                        class="quiz-option"
+                        data-index="${index}">
+
+                        ${String.fromCharCode(
+                            65 + index
+                        )}.
+                        ${option}
+
+                    </button>
+
+                    `
+                )
+                .join("")}
+
+        </div>
+
+    `;
+
+
+    document
+        .querySelectorAll(
+            ".quiz-option"
+        )
+        .forEach(
+            button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        answerQuiz(
+                            Number(
+                                button.dataset.index
+                            ),
+                            button
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+}
+
+
+function answerQuiz(
+    selected,
+    selectedButton
+){
+
+    if(quizLocked){
+        return;
+    }
+
+    quizLocked = true;
+
+
+    const question =
+        quizQuestions[quizIndex];
+
+
+    const allButtons =
+        document.querySelectorAll(
+            ".quiz-option"
+        );
+
+
+    allButtons.forEach(
+        (button,index) => {
+
+            if(
+                index ===
+                question.answer
+            ){
+
+                button.classList.add(
+                    "correct"
+                );
+
+            }
+
+        }
+    );
+
+
+    if(
+        selected ===
+        question.answer
+    ){
+
+        quizScore++;
+
+    }else{
+
+        selectedButton.classList.add(
+            "wrong"
+        );
+
+    }
+
+
+    setTimeout(
+        () => {
+
+            quizIndex++;
+
+
+            if(
+                quizIndex <
+                quizQuestions.length
+            ){
+
+                loadQuiz();
+
+            }else{
+
+                finishQuiz();
+
+            }
+
+        },
+        900
+    );
+
+}
+
+
+function finishQuiz(){
+
+    quizProgress.style.width =
+        "100%";
+
+
+    quizContent.innerHTML = "";
+
+
+    quizResult.style.display =
+        "block";
+
+
+    let message;
+
+
+    if(
+        quizScore ===
+        quizQuestions.length
+    ){
+
+        message =
+            "Perfect, Simmu. ❤️";
+
+    }else if(
+        quizScore >= 4
+    ){
+
+        message =
+            "Great job, Simmu! You understand the core idea.";
+
+    }else{
+
+        message =
+            "Good attempt. Read the simple explanation once more.";
+
+    }
+
+
+    quizResult.innerHTML = `
+
+        <div class="quiz-result-score">
+
+            ${quizScore}/${quizQuestions.length}
+
+        </div>
+
+
+        <h3>
+            ${message}
+        </h3>
+
+
+        <button
+            class="btn btn-primary"
+            onclick="restartQuiz()">
+
+            Try Again
+
+        </button>
+
+    `;
+
+}
+
+
+function restartQuiz(){
+
+    quizIndex = 0;
+
+    quizScore = 0;
+
+    quizResult.style.display =
+        "none";
+
+    loadQuiz();
+
+}
+
+
+loadQuiz();
+
+
+/* =========================================================
+   REVEAL ANIMATIONS
+========================================================= */
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(
+                entry => {
+
+                    if(
+                        entry.isIntersecting
+                    ){
+
+                        entry.target
+                            .classList
+                            .add("visible");
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold:.12
+        }
+    );
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(
+        element => {
+
+            observer.observe(
+                element
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   CREATE STARS
+========================================================= */
+
+const stars =
+    document.getElementById(
+        "stars"
+    );
+
+
+for(
+    let i=0;
+    i<55;
+    i++
+){
+
+    const star =
+        document.createElement(
+            "div"
+        );
+
+
+    star.className =
+        "star";
+
+
+    star.style.left =
+        Math.random()*100
+        + "%";
+
+
+    star.style.top =
+        Math.random()*100
+        + "%";
+
+
+    star.style.animationDuration =
+        (
+            6 +
+            Math.random()*10
+        )
+        + "s";
+
+
+    star.style.animationDelay =
+        (
+            Math.random()*8
+        )
+        + "s";
+
+
+    stars.appendChild(
+        star
+    );
+
+}
+
+</script>
+
+</body>
+</html>
